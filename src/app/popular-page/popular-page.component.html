@@ -3,9 +3,17 @@
 </h1>
 
 <div class="trending-list" *ngIf="tabFilm.length != 0">
-  <mat-card *ngFor="let film of tabFilm" (onClick)="addToFav(film)">
+  <!-- TODO ajouter des détails sur les films -->
+  <!-- TODO  définir une taille fixe pour les cartes -->
+  <mat-card *ngFor="let film of tabFilm">
     <mat-card-title>{{film.title}}</mat-card-title>
     <mat-card-subtitle>Popularity : {{film.popularity}}</mat-card-subtitle>
     <img mat-card-image [src]="imageURL + film.poster_path" alt="film's poster">
+    <mat-card-content>
+      Date de sortie : {{getDate(film.release_date)}}
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-icon (click)="toggleFav(film)" style="cursor: pointer">{{film.favorited ? "favorite" : "favorite_border" }}</mat-icon>
+    </mat-card-actions>
   </mat-card>
 </div>

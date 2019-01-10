@@ -16,7 +16,7 @@ export class PopularPageComponent implements OnInit {
   totalPage: number;
   ok: boolean;
   tabFilm: FilmDTO[] = [];
-  favFilms: Array<FilmDTO>[];
+  favFilms: Set<FilmDTO> = new Set<FilmDTO>();
 
 
   constructor(private http: HttpClient) { }
@@ -33,13 +33,8 @@ export class PopularPageComponent implements OnInit {
     // lancement de la requête
     this.http.get(requestURL).toPromise().then(
       (res: reqResponse) => {
-        console.log(res);
-
         this.tabFilm = res.results;
         this.totalPage = res.total_pages;
-
-
-        console.log(this.tabFilm);
       }, err => {
         console.log('that is no good buddy....');
         console.log(err);
@@ -47,8 +42,36 @@ export class PopularPageComponent implements OnInit {
     )
   }
 
-  addToFav(f: FilmDTO): void {
-    //TODO
+  getDate(sDate: string): string {
+
+    let date = new Date(sDate);
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+
+  }
+
+  toggleFav(f: FilmDTO): void {
+    f.favorited = !f.favorited;
+
+    if (f.favorited) {
+      // the film has been added to te favorites
+      this.favFilms.add(f);
+    } else {
+      // the film has been removed from the favorites
+      this.favFilms.delete(f);
+    }
+
+    sessionStorage.setItem("favorites", JSON.stringify(Array.from(this.favFilms)));
   }
 
 }

@@ -13,4 +13,5 @@ export class FilmDTO {
     adult: boolean;
     overview: string;
     release_date: string;
+    favorited: boolean = false;
 }
