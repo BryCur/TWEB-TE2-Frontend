@@ -15,11 +15,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // applications components
 import { LoginPageComponent } from './login-page/login-page.component';
+import { PopularPageComponent } from './popular-page/popular-page.component';
+import { UpcommingPageComponent } from './upcomming-page/upcomming-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PopularPageComponent,
+    UpcommingPageComponent
   ],
   imports: [
     BrowserModule,
