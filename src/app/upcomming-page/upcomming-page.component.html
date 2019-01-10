@@ -1,3 +1,11 @@
-<p>
-  upcomming-page works!
-</p>
+<h1>
+  Upcomming films
+</h1>
+
+<div class="upcomming-list" *ngIf="tabFilm.length != 0">
+  <mat-card *ngFor="let film of tabFilm" (onClick)="addToFav(film)">
+    <mat-card-title>{{film.title}}</mat-card-title>
+    <mat-card-subtitle>Popularity : {{film.popularity}}</mat-card-subtitle>
+    <img mat-card-image [src]="imageURL + film.poster_path" alt="film's poster">
+  </mat-card>
+</div>

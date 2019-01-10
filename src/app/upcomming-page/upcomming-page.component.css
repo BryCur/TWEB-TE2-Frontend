@@ -1,0 +1,17 @@
+h1{
+    width: 100%;
+    text-align: center;
+}
+.upcomming-list{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.upcomming-list > mat-card{
+    height: 33%;
+    width: 15%;
+    margin: 15px 20px;
+}
