@@ -8,20 +8,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {
   MatFormFieldModule, MatCardModule,
-  MatIconModule, MatInputModule,
+  MatIconModule, MatInputModule, MatButtonModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 // applications components
-import { LoginPageComponent } from './login-page/login-page.component';
 import { PopularPageComponent } from './popular-page/popular-page.component';
 import { UpcommingPageComponent } from './upcomming-page/upcomming-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
     PopularPageComponent,
     UpcommingPageComponent
   ],
@@ -33,6 +31,7 @@ import { UpcommingPageComponent } from './upcomming-page/upcomming-page.componen
     MatCardModule,
     MatInputModule,
     MatIconModule,
+    MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

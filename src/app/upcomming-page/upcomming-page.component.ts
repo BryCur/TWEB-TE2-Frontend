@@ -16,13 +16,14 @@ export class UpcommingPageComponent implements OnInit {
   totalPage: number;
   ok: boolean;
   tabFilm: FilmDTO[] = [];
-  favFilms: Array<FilmDTO>[];
+  favFilms: FilmDTO[];
 
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.favFilms = JSON.parse(sessionStorage.getItem('favorites'));
+
     this.executeRequest()
 
   }
@@ -36,13 +37,8 @@ export class UpcommingPageComponent implements OnInit {
     // lancement de la requête
     this.http.get(requestURL).toPromise().then(
       (res: reqResponse) => {
-        console.log(res);
-
         this.tabFilm = res.results;
         this.totalPage = res.total_pages;
-
-
-        console.log(this.tabFilm);
       }, err => {
         console.log('that is no good buddy....');
         console.log(err);
