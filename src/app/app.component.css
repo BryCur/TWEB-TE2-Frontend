@@ -1,0 +1,18 @@
+.nav-bar{
+    position: fixed;
+    left: 0;
+    right:0;
+    top: 0;
+    background-color: lightskyblue;
+    min-height: fit-content;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.nav-bar > button {
+    height: 100%;
+}
+
+.content{
+    margin-top : 70px;
+}
