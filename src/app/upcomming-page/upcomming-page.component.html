@@ -6,6 +6,6 @@
   <mat-card *ngFor="let film of tabFilm">
     <mat-card-title>{{film.title}}</mat-card-title>
     <mat-card-subtitle>Popularity : {{film.popularity}}</mat-card-subtitle>
-    <img mat-card-image [src]="imageURL + film.poster_path" alt="film's poster">
+    <img *ngIf="film.poster_path" mat-card-image [src]="imageURL + film.poster_path" alt="film's poster">
   </mat-card>
 </div>
