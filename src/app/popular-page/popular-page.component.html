@@ -1,3 +1,11 @@
-<p>
-  popular-page works!
-</p>
+<h1>
+  Trending films
+</h1>
+
+<div class="trending-list" *ngIf="tabFilm.length != 0">
+  <mat-card *ngFor="let film of tabFilm" (onClick)="addToFav(film)">
+    <mat-card-title>{{film.title}}</mat-card-title>
+    <mat-card-subtitle>Popularity : {{film.popularity}}</mat-card-subtitle>
+    <img mat-card-image [src]="imageURL + film.poster_path" alt="film's poster">
+  </mat-card>
+</div>
