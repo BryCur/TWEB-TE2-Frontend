@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_KEY: "f1be4bafe6f7cb0cb84f5948c5b75497",
+  API_URL: "https://brycur-proxy.herokuapp.com/"
 };
 
 /*
